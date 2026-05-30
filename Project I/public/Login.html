@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - SAIM College</title>
+  <link rel="stylesheet" href="Login.css"/>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <div class="logo-nav">
+      <a href="Home.html">
+        <img class="logo" src="logo.png" alt="Logo" />
+      </a>
+    </div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="nav-links" id="navLinks">
+      <a href="Home.html">HOME</a>
+      <a href="About.html">ABOUT US</a>
+      <a href="Enroll.html">ENROLL</a>
+      <a href="Contact.html">CONTACT</a>
+      <a href="Login.html" class="active">LOGIN</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Login Form -->
+<main>
+  <div class="contact-form">
+    <h2>Login to SAIM College</h2>
+    <p>Please enter your credentials to access the portal.</p>
+
+    <form id="loginForm">
+      <label for="username">Username or Email</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username or email" required />
+      
+      <button type="submit" class="button-link">Next</button>
+    </form>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-left">📍 Old Baneshwor, Kathmandu</div>
+    <a href="Contact.html" class="contact-btn">Contact Us</a>
+    <div class="footer-right">📞 01-4574747 <br> 📞 01-4584832</div>
+  </div>
+</footer>
+
+<!-- Social media icons -->
+<div class="social-container">
+  <div class="social-icons" id="socialIcons">
+    <a href="https://www.instagram.com/saimcollege/" target="_blank" class="social-icon instagram">
+      <img src="instagram.png" alt="Instagram" />
+    </a>
+    <a href="https://www.linkedin.com/company/saim-college/" target="_blank" class="social-icon linkedin">
+      <img src="linkedin.png" alt="LinkedIn" />
+    </a>
+    <a href="https://saim.edu.np/" target="_blank" class="social-icon website">
+      <img src="website.png" alt="Website" />
+    </a>
+  </div>
+  <button class="toggle-rectangle" id="toggleSocial">
+    <img src="toggle-icon.png" alt="Toggle Links" />
+  </button>
+</div>
+
+<!-- Custom Popup -->
+<div id="loginPopup" class="popup-overlay">
+  <div class="popup-box">
+    <div class="popup-content">
+      <p id="loginMessage">Checking...</p>
+    </div>
+    <button id="popupClose" class="popup-close">OK</button>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  // Hamburger functionality
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  const links = navLinks.querySelectorAll("a");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+    });
+  });
+
+  // Login form functionality
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const enteredEmail = document.getElementById("username").value.trim();
+    const students = JSON.parse(localStorage.getItem("enrolledStudents")) || [];
+    const matchedStudent = students.find(student => student.email === enteredEmail);
+
+    const popup = document.getElementById("loginPopup");
+    const messageBox = document.getElementById("loginMessage");
+    const closeBtn = document.getElementById("popupClose");
+
+    if (!matchedStudent) {
+      messageBox.textContent = "Email not found. Please enroll first.";
+      popup.style.display = "flex";
+      closeBtn.onclick = () => popup.style.display = "none";
+      return;
+    }
+
+    if (matchedStudent.password && matchedStudent.password.length > 0) {
+      messageBox.textContent = "Password already set for this email.";
+      popup.style.display = "flex";
+      closeBtn.onclick = () => popup.style.display = "none";
+      return;
+    }
+
+    messageBox.textContent = "Valid email found. Redirecting to password setup...";
+    popup.style.display = "flex";
+    closeBtn.onclick = () => {
+      popup.style.display = "none";
+      localStorage.setItem("currentLoginEmail", enteredEmail);
+      location.href = "Password.html";
+    };
+  });
+
+  // Social media animation
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggleSocial");
+    const icons = document.getElementById("socialIcons");
+    let visible = false;
+
+    setTimeout(() => {
+      icons.classList.add("show");
+      setTimeout(() => {
+        icons.classList.remove("show");
+        toggleBtn.style.display = "flex";
+      }, 1500);
+    }, 1000);
+
+    toggleBtn.addEventListener("click", function () {
+      visible = !visible;
+      icons.classList.toggle("show");
+      toggleBtn.classList.toggle("open", visible);
+    });
+  });
+</script>
+
+</body>
+</html>

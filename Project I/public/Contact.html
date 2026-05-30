@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="Contact.css">
+</head>
+<body>
+  
+  <nav>
+  <div class="nav-container">
+    <div class="logo-nav">
+    <a href="Home.html">
+    <img class="logo" src="logo.png" alt="Logo" />
+    </a>
+    </div>
+
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="nav-links" id="navLinks">
+      <a href="Home.html" >HOME</a>
+      <a href="About.html" >ABOUT US</a>
+      <a href="Enroll.html">ENROLL</a>
+      <a href="Contact.html" class="active">CONTACT</a>
+      <a href="Login.html">LOGIN</a>
+    </div>
+  </div>
+</nav>
+
+<div class="contact-form">
+  <h2>Get in touch</h2>
+  <p>South Asian Institute of Management</p>
+
+  <form id="enquiryForm">
+    <div class="row">
+      <input type="text" id="name" name="name" placeholder="Name" required />
+      <input type="tel" id="phone" name="phone" placeholder="Phone" required />
+    </div>
+
+    <input type="email" id="email" name="email" placeholder="Email" required />
+    <br /><br />
+
+    <label for="course">Course:</label>
+    <select id="course" name="course" required>
+      <option value="">--Select--</option>
+      <option value="BCSIT">BCSIT</option>
+      <option value="BBA">BBA</option>
+      <option value="BCA">BCA</option>
+    </select>
+    <span class="error" id="courseError"></span>
+    <br /><br />
+
+    <textarea id="msg" name="message" rows="8" placeholder="Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+    
+    <p id="message" style="color: red; margin-top: 10px;"></p>
+  </form>
+</div>
+
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-left"> 📍Old Baneshwor, Kathmandu </div>
+
+    <a href="Contact.html" class="contact-btn">Contact Us</a>
+
+    <div class="footer-right">📞01-4574747 <br> 📞01-4584832 </div>
+  </div>
+</footer>
+
+<!-- // Social media icons -->
+<div class="social-container">
+  <div class="social-icons" id="socialIcons">
+    <a href="https://www.instagram.com/saimcollege/" target="_blank" class="social-icon instagram">
+      <img src="instagram.png" alt="Instagram" />
+    </a>
+    <a href="https://www.linkedin.com/company/saim-college/" target="_blank" class="social-icon linkedin">
+      <img src="linkedin.png" alt="LinkedIn" />
+    </a>
+    <a href="https://saim.edu.np/" target="_blank" class="social-icon website">
+      <img src="website.png" alt="Website" />
+    </a>
+  </div>
+  <button class="toggle-rectangle" id="toggleSocial">
+    <img src="toggle-icon.png" alt="Toggle Links" />
+  </button>
+</div>
+
+<script>
+
+  // Hamburger functionality
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      const links = navLinks.querySelectorAll("a");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+
+
+      
+  // Enquiry form functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("enquiryForm");
+    const messageDisplay = document.getElementById("message");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const course = document.getElementById("course").value;
+      const message = document.getElementById("msg").value.trim();
+
+      // Validation
+      if (name.length < 3 || name.length > 50) {
+        return showError("Name must be between 3 and 50 characters.");
+      }
+
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(phone)) {
+        return showError("Invalid Phone Number.");
+      }
+
+      if (!email.endsWith("@gmail.com")) {
+        return showError("Email must end with @gmail.com.");
+      }
+
+      if (message.length < 3) {
+        return showError("Message must be at least 3 characters.");
+      }
+
+      if (course === "") {
+        return showError("Please select a course.");
+      }
+
+      // Save to localStorage
+      const inquiry = {
+        name,
+        phone,
+        email,
+        course,
+        message,
+        timestamp: new Date().toISOString()
+      };
+
+      let inquiries = JSON.parse(localStorage.getItem("inquiries")) || [];
+      inquiries.push(inquiry);
+      localStorage.setItem("inquiries", JSON.stringify(inquiries));
+
+      // Clear form
+      form.reset();
+      messageDisplay.style.color = "green";
+      messageDisplay.textContent = "Your message has been sent successfully!";
+    });
+
+    function showError(msg) {
+      messageDisplay.style.color = "red";
+      messageDisplay.textContent = msg;
+    }
+  });
+
+  //social mediaaaaaaaaaaaaaaaa
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("toggleSocial");
+  const icons = document.getElementById("socialIcons");
+  let visible = false;
+
+  // Initial arc animation
+  setTimeout(() => {
+    icons.classList.add("show");
+    setTimeout(() => {
+      icons.classList.remove("show");
+      toggleBtn.style.display = "flex";
+    }, 1500);
+  }, 1000);
+
+  toggleBtn.addEventListener("click", function () {
+    visible = !visible;
+    icons.classList.toggle("show");
+    toggleBtn.classList.toggle("open", visible);
+  });
+});
+
+</script>
+
+</body>
+</html>

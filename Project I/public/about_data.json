@@ -1,0 +1,83 @@
+{
+  "college": {
+    "name": "South Asian Institute of Management",
+    "established": 2005,
+    "location": "Old Baneshwor, Kathmandu",
+    "contact": {
+      "phone": [
+        "01-4574747",
+        "01-4584832"
+      ],
+      "email": null,
+      "website": "https://www.officialcollege.com"
+    },
+    "affiliation": "Pokhara University",
+    "overview": "SAIM College, formally known as the South Asian Institute of Management, is a prestigious educational institution in Kathmandu, Nepal. Established in 2005, SAIM is affiliated with Pokhara University. It offers undergraduate and graduate programs, including a Bachelor of Computer Systems and Information Technology (BCSIT), a Bachelor of Business Administration (BBA), and a Master of Business Administration in Global Business (MBA-Global Business).\n\nSAIM College is committed to nurturing excellence in its students. It offers a comprehensive learning environment that blends theoretical knowledge with practical application. The college employs various teaching methods, such as case studies, internships, and project-based learning, to prepare students for the dynamic field of Computer Systems and Information Technology (CSIT). This approach aims to develop well-rounded professionals with strong technical skills and critical thinking abilities.\n\nWith a vision to become a globally recognized center of excellence in education and research in technology and management, SAIM College takes pride in its mission. The institution aims to produce tech-savvy managers, leaders, and innovators with integrity and a commitment to South Asian values. SAIM College is known for fostering a warm and supportive learning environment, where every individual is valued and encouraged to thrive. This collaborative atmosphere encourages creativity, innovation, and effective teamwork among students and faculty, making everyone feel welcomed and valued.",
+    "vision": "To become a globally recognized center of excellence in education and research in technology and management.",
+    "mission": "To produce tech-savvy managers, leaders, and innovators with integrity and a commitment to South Asian values."
+  },
+  "courses": [
+    {
+      "id": "mba",
+      "name": "Master of Business Administration (MBA-Global Business)",
+      "duration": "2 years (6 trimesters)",
+      "affiliation": "Pokhara University",
+      "description": "MBA (Global Business) Program is an intensive two-year course at Pokhara University, stretched over six terms of full-time study, with every year comprising three terms (trimesters). The MBA (Global Business) Program, unlike traditional/general MBA programs that deal more with decision-making tools and functional areas, provides more exposure to global trends and management practices. The MBA (Global Business) Program thus provides candidates with a wider exposure to the global business environment and practices. It is not in itself a specialized course on global business. Like a regular MBA, a student has to specialize in Finance, Marketing, or Human Resources as per their choice in the MBA (Global Business) Program. The MBA (Global Business) Program is designed to prepare managers who are well-conversant not only with the latest managerial concepts, tools and techniques but also with the global and regional trends in businesses so that they can take up the challenges of leading and managing their organizations by building a distinct competitive edge in the global and regional context."
+    },
+    {
+      "id": "bba",
+      "name": "Bachelor of Business Administration (BBA)",
+      "duration": "4 years (8 semesters)",
+      "credit_hours": 120,
+      "features": [
+        "Case studies",
+        "Group discussions",
+        "Project assignments",
+        "Field visits",
+        "Class presentations"
+      ],
+      "medium": "English",
+      "description": "Program Features: The BBA is a four-year program structured into eight semesters. A student needs to complete 120 credit hours of coursework, project work and internship for graduation. Besides lectures, the classes are facilitated by case studies, group discussions, project assignments, field visits, class presentations and other teaching methods. Students are emphasized to participate in class activities, group discussions and individual presentations to develop communication and interpersonal skills. The medium of instruction and examination for this program will be English, and a student is expected to have good English language proficiency with acceptable communication skills. The Semester System: The prominent feature of the semester system is the continuous evaluation of a student’s performance and flexibility given to the students to progress at a pace suited to their ability as per the credit requirements. The credit hour assigned to each course of this program varies depending on its lecture, tutorial and practical work hours in a week. One lecture/contact hour per week per semester is assigned one credit. That is, a three-credit hours course has 48 class hours."
+    },
+    {
+      "id": "bcsit",
+      "name": "Bachelor of Computer System and Information Technology (BCSIT)",
+      "duration": "4 years (8 semesters)",
+      "credit_hours": 127,
+      "features": [
+        "Case studies",
+        "Group discussions",
+        "Project assignments",
+        "Field visits",
+        "Class presentations"
+      ],
+      "medium": "English",
+      "description": "The BCSIT is a four-year program structured in eight semesters. A student needs to complete 127 credit hours of coursework, project work and internship for graduation. Besides lectures, the classes are facilitated by case studies, group discussions, project assignments, field visits, class presentations and other teaching methods. In order to develop communication and interpersonal skills, students are emphasized to participate in class activities, group discussions and individual presentations. The medium of instruction and examination for this program will be English, and a student is expected to have good English language proficiency with acceptable communication skill."
+    },
+
+
+
+
+
+    {
+      "id": "bbs",
+      "name": "Bachelor of Business Studies",
+      "duration": "4 years (8 semesters)",
+      "credit_hours": 127,
+      "features": [
+        "Case studies",
+        "Group discussions",
+        "Project assignments",
+        "Field visits",
+        "Class presentations"
+      ],
+      "medium": "English",
+      "description": "The Bachelor of Business Studies (BBS) program at Pokhara University spans four years, comprising eight semesters, and covers 120 credit hours. BBS program prepares students for dynamic careers in business, government, and entrepreneurship, providing a strong foundation in management and practical skills."
+    }
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/saimcollege/",
+    "linkedin": "https://www.linkedin.com/company/saim-college/",
+    "official_website": "https://www.linkedin.com/company/saim-college/"
+  }
+}

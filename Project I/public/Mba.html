@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA</title>
+    <link rel="stylesheet" type="text/css" href="Mba.css" />
+</head>
+<body>
+        <header>
+      <div class="info">
+        📍
+        <div>
+          Devkota Sadak <br />
+          Baneshwor, Kathmandu
+        </div>
+      </div>
+
+      <div>
+        <a href="Home.html">
+          <img class="logo" src="Logo1.jpg" alt="Logo" />
+        </a>
+      </div>
+
+      <div class="info">
+        <i>📞</i>
+        <div>
+          01-4574747<br />
+          01-4584832
+        </div>
+      </div>
+    </header>
+    
+    <nav>
+      <div class="nav-container">
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <!-- ☰ Icon -->
+        <div class="nav-links" id="navLinks">
+          <a href="Home.html">HOME</a>
+          <a href="About.html">ABOUT US</a>
+          <a href="Enroll.html">ENROLL</a>
+          <a href="Contact.html">CONTACT</a>
+        </div>
+      </div>
+    </nav>
+   <div class="courses">
+      <div class="course-card" id="mba">
+        <h3>Master of Business Administration (MBA-Global Business)</h3>
+        <p>
+          MBA (Global Business) Program is an intensive two-year course at
+          Pokhara University, stretched over six terms of full-time study, with
+          every year comprising three terms (trimesters). The MBA (Global
+          Business) Program, unlike traditional/general MBA programs that deal
+          more with decision-making tools and functional areas, provides more
+          exposure to global trends and management practices. The MBA (Global
+          Business) Program thus provides candidates with a wider exposure to
+          the global business environment and practices. It is not in itself a
+          specialized course on global business. Like a regular MBA, a student
+          has to specialize in Finance, Marketing, or Human Resources as per
+          their choice in the MBA (Global Business) Program. The MBA (Global
+          Business) Program is designed to prepare managers who are
+          well-conversant not only with the latest managerial concepts, tools
+          and techniques but also with the global and regional trends in
+          businesses so that they can take up the challenges of leading and
+          managing their organizations by building a distinct competitive edge
+          in the global and regional context.
+        </p>
+      </div> 
+
+          <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      const links = navLinks.querySelectorAll("a");
+
+      // Toggle sidebar
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+
+      // Close sidebar when a link is clicked
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+    </script>
+</body>
+</html>

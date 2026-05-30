@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="About.css" />
+  <title>About Us</title>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo-nav">
+        <a href="Home.html"><img class="logo" src="logo.png" alt="Logo" /></a>
+      </div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <div class="nav-links" id="navLinks">
+        <a href="Home.html">HOME</a>
+        <a href="About.html" class="active">ABOUT US</a>
+        <a href="Enroll.html">ENROLL</a>
+        <a href="Contact.html">CONTACT</a>
+        <a href="Login.html">LOGIN</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- COLLEGE INTRO -->
+  <div class="clgintro" id="clgintro">
+    <h2 id="collegeName"></h2>
+    <p id="overview"></p>
+    <br />
+    <p><strong>Vision:</strong> <span id="vision"></span></p>
+    <p><strong>Mission:</strong> <span id="mission"></span></p>
+  </div>
+
+  <!-- COURSES SECTION -->
+  <div class="courses" id="coursesContainer"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left" id="location">📍</div>
+      <a href="Contact.html" class="contact-btn">Contact Us</a>
+      <div class="footer-right" id="contactNumbers"></div>
+    </div>
+  </footer>
+
+  <!-- SOCIAL MEDIA ICONS -->
+  <div class="social-container">
+    <div class="social-icons" id="socialIcons"></div>
+    <button class="toggle-rectangle" id="toggleSocial">
+      <img src="toggle-icon.png" alt="Toggle Links" />
+    </button>
+  </div>
+
+  <!-- JS LOGIC -->
+  <script>
+    // Hamburger Menu
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("show");
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+      });
+    });
+
+    
+//fetch about data
+fetch("about_data.json")
+  .then(res => res.json())
+  .then(data => {
+    const college = data.college;
+
+    // Populate basic info
+    document.getElementById("collegeName").textContent = college.name;
+    document.getElementById("overview").textContent = college.overview;
+    document.getElementById("vision").textContent = college.vision;
+    document.getElementById("mission").textContent = college.mission;
+
+    // Footer
+    document.getElementById("location").textContent = "📍 " + college.location;
+    document.getElementById("contactNumbers").innerHTML =
+      "📞 " + college.contact.phone.join("<br>📞 ");
+
+    // Courses
+    const courseSection = document.getElementById("coursesContainer");
+    data.courses.forEach(course => {
+      const card = document.createElement("div");
+      card.className = "course-card";
+      card.id = course.id;
+      card.innerHTML = `<h3>${course.name}</h3><p>${course.description}</p>`;
+      courseSection.appendChild(card);
+    });
+
+    // Social Icons
+    const socialIcons = document.getElementById("socialIcons");
+    const icons = {
+      instagram: "instagram.png",
+      linkedin: "linkedin.png",
+      official_website: "website.png"
+    };
+    for (const [platform, url] of Object.entries(data.social_links)) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.className = "social-icon " + platform;
+
+      const img = document.createElement("img");
+      img.src = icons[platform];
+      img.alt = platform.charAt(0).toUpperCase() + platform.slice(1);
+      link.appendChild(img);
+      socialIcons.appendChild(link);
+    }
+
+    // ✅ SCROLL to course AFTER cards are added
+    const courseId = new URLSearchParams(window.location.search).get("course");
+    if (courseId) {
+      const courseCard = document.getElementById(courseId);
+      if (courseCard) {
+        courseCard.scrollIntoView({ behavior: "smooth", block: "center" });
+        courseCard.style.background = "#fff8e1";
+        courseCard.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)";
+        setTimeout(() => {
+          courseCard.style.background = "";
+          courseCard.style.boxShadow = "";
+        }, 3000);
+      }
+    }
+  })
+  .catch(err => console.error("Error loading JSON:", err));
+
+    // Social animation
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById("toggleSocial");
+      const icons = document.getElementById("socialIcons");
+
+      if (!toggleBtn || !icons) return;
+
+      let visible = false;
+
+      setTimeout(() => {
+        icons.classList.add("show");
+        setTimeout(() => {
+          icons.classList.remove("show");
+          toggleBtn.style.display = "flex";
+        }, 1500);
+      }, 1000);
+
+      toggleBtn.addEventListener("click", () => {
+        visible = !visible;
+        icons.classList.toggle("show");
+        toggleBtn.classList.toggle("open", visible);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+/* ============================================================
+   RESET & BASE STYLES
+============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  /* font-family: "Segoe UI", sans-serif;
+  background: #eef2f3; */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eef2f3;
+  overflow-y: scroll;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* === NAVIGATION === */
+nav {
+  background-color: #2d343e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+.logo-nav a {
+  display: inline-block;
+  line-height: 0;
+}
+.logo {
+  height: 60px;
+  width: 60px;
+  display: block;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: goldenrod;
+}
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: goldenrod;
+  bottom: -5px;
+  left: 0;
+}
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+
+/* ============================================================
+   CONTACT FORM SECTION
+============================================================ */
+.contact-form {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.contact-form h2 {
+  color: #bfa45d;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.contact-form p {
+  color: #555;
+  margin-bottom: 20px;
+}
+.contact-form .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background: #f1f1f1;
+  border: none;
+  font-size: 14px;
+}
+.contact-form textarea {
+  resize: vertical;
+}
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #2d343e;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.contact-form button:hover {
+  background-color: #a48e4f;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: #fff;
+  padding: 20px 40px;
+  margin-top: auto;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-left,
+.footer-right {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* contact btn */
+.contact-btn {
+  padding: 12px 30px;
+  background-color: #2d343e;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.contact-btn:hover {
+  background: goldenrod;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+@media (max-width: 768px) {
+  .nav-container {
+    position: relative;
+    padding: 20px 20px;
+    height: auto;
+    justify-content: center;
+  }
+
+  .logo-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    z-index: 1001;
+  }
+
+  .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    position: relative;
+    z-index: 1002;
+    margin-left: auto;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100%;
+    background-color: #2d343e;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    left: 0;
+  }
+
+  .nav-links a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+  }
+}
+
+/* === SOCIAL MEDIA ICONS === */
+.social-container {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.social-icons {
+  position: relative;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 5px; */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.social-icon {
+  transform: translateX(0) translateY(0);
+  transition: transform 0.6s ease, opacity 0.4s ease;
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+/* When icons are shown */
+.social-icons.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Arc positions (half-circle layout) */
+.social-icons.show .social-icon:nth-child(1) {
+  transform: translate(-50px, -45px);
+}
+
+.social-icons.show .social-icon:nth-child(2) {
+  transform: translate(-60px, 0px); /* Center (aligned with toggle) */
+}
+
+.social-icons.show .social-icon:nth-child(3) {
+  transform: translate(-50px, 45px);
+}
+
+/* Bookmark-style toggle button */
+.toggle-rectangle {
+  background: #2d343e00;
+  border: none;
+  padding: 4px;
+  width: 26px;
+  height: 38px;
+  cursor: pointer;
+  border-radius: 6px 0 0 6px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.toggle-rectangle:hover {
+  background: #3a3f4848;
+}
+
+.toggle-rectangle img {
+  width: 14px;
+  height: auto;
+  display: block;
+}
+
+/* Optional rotation when open */
+.toggle-rectangle.open img {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}

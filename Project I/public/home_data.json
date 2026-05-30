@@ -1,0 +1,52 @@
+{
+  "home": {
+    "welcome_heading": "Welcome To SAIM College",
+    "quote": {
+      "text": "The beautiful thing about learning is that no one can take it away from you.",
+      "author": "B. King"
+    },
+    "introduction": [
+      "Since its establishment in 2005, SAIM has aspired to be an academic institution where we nurture our students to excel in all aspects of life. SAIM has been consistently ranked among the Top Business Schools in Kathmandu for management education.",
+      "Under Pokhara University's affiliation, SAIM currently offers programs under Bachelors of Computer System and Information Technology (BCSIT), Bachelor of Business Administration (BBA) and Masters of Business Administration in Global Business (MBA-Global Business).",
+      "The friendly and open learning environment supported by an experienced pool of faculty members enhances the learning at SAIM. The aim is to help students develop their abilities and competencies to succeed."
+    ],
+    "programs": [
+      {
+        "id": "mba",
+        "title": "Master of Business Administration (MBA-Global Business)",
+        "short_description": "MBA (Global Business) Program is an intensive two-year course at Pokhara University, stretched over six terms of full-time study, with every year comprising three terms (trimesters)...",
+        "image": "Mba.jpg",
+        "read_more_link": "About.html#mba",
+        "apply_link": "Enroll.html"
+      },
+      {
+        "id": "bba",
+        "title": "Bachelor of Business Administration (BBA)",
+        "short_description": "Program Features The BBA is a four-year program structured into eight semesters. A student needs to complete 120 credit hours of coursework, project work and internship for graduation...",
+        "image": "Bba.jpg",
+        "read_more_link": "About.html#bba",
+        "apply_link": "Enroll.html"
+      },
+      {
+        "id": "bcsit",
+        "title": "Bachelors of Computer System and Information Technology (BCSIT)",
+        "short_description": "The BCSIT is a four-year program structured in eight semesters. A student needs to complete 127 credit hours of coursework, project work and internship for graduation...",
+        "image": "Bcsit.jpg",
+        "read_more_link": "About.html#bcsit",
+        "apply_link": "Enroll.html"
+      },
+
+
+
+
+      {
+        "id": "bbs",
+        "title": "Bachelors of Business Studies(BBS)",
+        "short_description": "The Bachelor of Business Studies (BBS) program at Tribhuvan University spans four years, comprising eight semesters, and covers 120 credit hours. BBS program prepares students for dynamic careers in business, government, and entrepreneurship, providing a strong foundation in management and practical skills.",
+        "image": "BBS.jpg",
+        "read_more_link": "About.html#bbs",
+        "apply_link": "Enroll.html"
+      }
+    ]
+  }
+}

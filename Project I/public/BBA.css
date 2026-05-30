@@ -1,0 +1,119 @@
+/* ========== HEADER ========== */
+header {
+  background-color: white;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #555;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #555;
+}
+
+.info i {
+  color: goldenrod;
+  font-size: 18px;
+}
+
+/* ========== NAVIGATION (Desktop) ========== */
+nav {
+  background-color: #2d343e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  gap: 20px;
+  background-color: #2d343e;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: goldenrod;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: goldenrod;
+  bottom: -5px;
+    left: 0;
+}
+/* ========== HAMBURGER (Mobile Only) ========== */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.courses {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border-left: 6px solid goldenrod;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 30px 25px;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h3 {
+  font-size: 22px;
+  color: #2d343e;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 5px;
+}
+
+.course-card p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  text-align: justify;
+}

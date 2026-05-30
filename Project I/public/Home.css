@@ -1,0 +1,490 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  overflow-x: hidden;
+  height: 100%;
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-top: 0;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* === NAVIGATION === */
+nav {
+  background-color: #2d343e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+.logo-nav a {
+  display: inline-block;
+  line-height: 0;
+}
+.logo {
+  height: 60px;
+  width: 60px;
+  display: block;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: goldenrod;
+}
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: goldenrod;
+  bottom: -5px;
+  left: 0;
+}
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* === CONTAINER === */
+.container {
+  background: #f5f5f5;
+  padding-top: 20px;
+  text-align: center;
+}
+
+/* === INTRO === */
+.intro {
+  background: linear-gradient(to right, #f9f9f9, #eef2f3);
+  padding: 60px 20px 40px;
+}
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #333;
+}
+.intro blockquote {
+  font-size: 1.4em;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #444;
+  padding: 20px 30px;
+  border-left: 5px solid goldenrod;
+  background: #fff8e1;
+  border-radius: 8px;
+}
+.intro .quote-author {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #666;
+}
+.intro p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #444;
+}
+.intro strong {
+  color: #2d343e;
+}
+
+/* === PROGRAMS === */
+.programs {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+}
+.programs h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === COURSE CARDS === */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+.card img {
+  width: 100%;
+  height: 75%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+.card p {
+  font-size: 14px;
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+/* === IMAGE HOVER === */
+.image-hover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.image-hover img {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+.image-hover:hover img {
+  transform: scale(1.05);
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+.image-hover:hover .overlay {
+  opacity: 1;
+}
+.course-title {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.image-hover:hover .course-title {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* === BUTTONS === */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.read-btn,
+.apply-btn {
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  width: 48%;
+  text-align: center;
+  text-decoration: none;
+}
+.read-btn {
+  border: 1px solid #800000;
+  color: #800000;
+  background-color: transparent;
+}
+.read-btn:hover {
+  background-color: #800000;
+  color: white;
+}
+.apply-btn {
+  background-color: #800000;
+  color: white;
+}
+.apply-btn:hover {
+  background-color: goldenrod;
+  color: black;
+}
+
+/* === CONTACT BUTTON === */
+.contact-btn {
+  padding: 12px 30px;
+  background-color: #2d343e;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.contact-btn:hover {
+  background-color: goldenrod;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #fff;
+  padding: 20px 40px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-left,
+.footer-right {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+.footer-left {
+  text-align: left;
+}
+.footer-right {
+  text-align: right;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    position: relative;
+    padding: 20px 20px;
+    height: auto;
+    justify-content: center;
+  }
+
+  .logo-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    z-index: 1001;
+  }
+
+  .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    position: relative;
+    z-index: 1002;
+    margin-left: auto;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100%;
+    background-color: #2d343e;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    left: 0;
+  }
+
+  .nav-links a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+  }
+}
+
+
+/* For slider and gallery */
+.about-slider-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 500px; /* Increased height */
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .about-slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+  }
+
+  .about-slide {
+    min-width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    color: #333;
+    font-size: 48px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+  }
+
+  .about-slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .about-slider-nav button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    pointer-events: auto;
+  }
+
+
+
+
+/* === SOCIAL MEDIA ICONS === */
+.social-container {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.social-icons {
+  position: relative;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 5px; */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.social-icon {
+  transform: translateX(0) translateY(0);
+  transition: transform 0.6s ease, opacity 0.4s ease;
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+/* When icons are shown */
+.social-icons.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Arc positions (half-circle layout) */
+.social-icons.show .social-icon:nth-child(1) {
+  transform: translate(-50px, -45px);
+}
+
+.social-icons.show .social-icon:nth-child(2) {
+  transform: translate(-60px, 0px); /* Center (aligned with toggle) */
+}
+
+.social-icons.show .social-icon:nth-child(3) {
+  transform: translate(-50px, 45px);
+}
+
+/* Bookmark-style toggle button */
+.toggle-rectangle {
+  background: #2d343e00;
+  border: none;
+  padding: 4px;
+  width: 26px;
+  height: 38px;
+  cursor: pointer;
+  border-radius: 6px 0 0 6px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.toggle-rectangle:hover {
+  background: #3a3f4848;
+}
+
+.toggle-rectangle img {
+  width: 14px;
+  height: auto;
+  display: block;
+}
+
+/* Optional rotation when open */
+.toggle-rectangle.open img {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+
+
+/* Prevent accidental scroll
+body {
+  overflow-x: hidden;
+} */
